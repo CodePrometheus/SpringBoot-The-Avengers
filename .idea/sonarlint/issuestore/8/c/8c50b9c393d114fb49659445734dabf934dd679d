@@ -1,0 +1,6 @@
+
+b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(¯É†ê8Ñ×…Ò¿.
+X	java:S125"<This block of commented-out lines of code should be removed.(ÿ–Ú®8Š½Ó¿.
+X	java:S1254"<This block of commented-out lines of code should be removed.(½¥‘ù8äâÃÓ¿.
+g
+java:S2095&"EUse try-with-resources or close this "Channel" in a "finally" clause.(‡î‰´ûÿÿÿÿ8×öˆÒ¿.
