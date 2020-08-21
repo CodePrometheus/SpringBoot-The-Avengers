@@ -14,7 +14,7 @@ Springboot与时下流行技术的整合学习记录
   ---
   
   ## 简介
-  该仓库为SpringBoot与其他相关技术的整合，并记录尽可能详细的学习笔记，以飨读者
+  该仓库为SpringBoot与其他相关技术的整合，并记录尽可能详细的学习笔记
   
   ## 内容
   * Springboot + RabbitMQ 
