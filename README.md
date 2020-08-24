@@ -26,4 +26,8 @@ Springboot与时下流行技术的整合学习记录
       * JWT前后端分离系统的认证方案，单点登录系统的认证
       * JWT整合Springboot完成认证以及认证优化
       * 基于客户端的存储认证标记的解决方案
+      
+  * Springboot + Swagger
+      * 简单入门Swagger，一些注解使用
+      * http://localhost:8080/swagger-ui.html
   
