@@ -1,4 +1,4 @@
-package com.star.entity;
+package com.star.swagger.entity;
 
 
 public class User {
