@@ -1,6 +1,6 @@
 package com.star.test;
 
-import com.star.SpringbootRabbitmqApplication;
+import com.star.RabbitRunning;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest(classes = SpringbootRabbitmqApplication.class)
+@SpringBootTest(classes = RabbitRunning.class)
 //以便在测试开始的时候自动创建Spring的应用上下文。
 // 注解了@RunWith就可以直接使用spring容器，直接使用@Test注解，不用启动spring容器
 @RunWith(SpringRunner.class)
