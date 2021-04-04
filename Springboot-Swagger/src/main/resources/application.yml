@@ -4,10 +4,10 @@ spring:
 server:
   port: 8989
 
-# ===== \u81EA\u5B9A\u4E49swagger\u914D\u7F6E ===== #
+# ===== swagger ===== #
 swagger:
   enable: true
   application-name: ${spring.application.name}
   application-version: 1.0
-  application-description: springfox swagger 3.0\u6574\u5408Demo
+  application-description: springfox swagger 3.0 Demo
   try-host: http://localhost:${server.port}
