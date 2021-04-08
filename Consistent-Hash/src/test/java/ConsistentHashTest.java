@@ -1,6 +1,5 @@
 import com.star.contenthash.ConsistentHash;
 import com.star.contenthash.Node;
-import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -15,8 +14,7 @@ public class ConsistentHashTest {
 
     final ConcurrentHashMap<String, Long> stat = new ConcurrentHashMap<>();
 
-    @Test
-    public void testHash() throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         ConsistentHashTest hashTest = new ConsistentHashTest();
         Set<Node> ips = new HashSet<>();
         ips.add(new Node("192.168.10.1"));
@@ -48,9 +46,9 @@ public class ConsistentHashTest {
             thread.start();
         }
         System.out.println(System.currentTimeMillis() - start);
-        Thread.sleep(1000 * 20);
+        Thread.sleep(1000 * 2);
         hashTest.print();
-        System.exit(0);
+        System.out.println("===============================");
     }
 
     private void print() {
@@ -71,5 +69,4 @@ public class ConsistentHashTest {
             stat.put(node.getIp(), count + 1);
         }
     }
-
 }

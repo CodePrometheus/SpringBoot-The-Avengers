@@ -1,7 +1,6 @@
 package com.star.contenthash;
 
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * 一致性hash实现
@@ -94,7 +93,7 @@ public class ConsistentHash {
         final long hash = this.alg.hash(key);
         Long target = hash;
 
-        // 如果环上没有对应
+        // 数据映射在两台虚拟机器所在环之间,就需要按顺时针方向寻找机器
         if (!nodeMap.containsKey(hash)) {
             // 返回最小键大于或等于返回到给定的键
             target = nodeMap.ceilingKey(hash);
