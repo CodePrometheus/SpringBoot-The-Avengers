@@ -26,7 +26,6 @@ Springboot与时下最新流行技术的整合学习记录
 * Springboot + RabbitMQ
     * RabbitMQ常用几大模型的使用，包括Hello World,Work queues,Routing,Topics
     * Springboot整合MQ的使用
-    * 笔记中也包括RabbitMQ普通集群以及高可用的镜像集群的搭建
 
 * Springboot + JWT
     * JWT前后端分离系统的认证方案，单点登录系统的认证
@@ -45,4 +44,9 @@ Springboot与时下最新流行技术的整合学习记录
     
 * 线程池异步记录日志
     * 切面实现
+  
+* Springboot + Mybatis
+    * 单表查询
+    * 多表查询 (一对一，一对多，分步查询)
+    * 分页查询
 

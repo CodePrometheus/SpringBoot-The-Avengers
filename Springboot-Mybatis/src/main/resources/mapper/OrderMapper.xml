@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.star.mybatis.mapper.OrderMapper">
+
+    <resultMap id="baseMap" type="com.star.mybatis.domain.Order" autoMapping="false">
+        <!-- 列名和对应的属性名 -->
+        <id column="id" property="id"/>
+        <result column="createtime" property="createTime"/>
+        <result column="price" property="price"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <resultMap id="orderMap" type="com.star.mybatis.domain.Order" autoMapping="false" extends="baseMap">
+        <!-- 列名和对应的属性名 -->
+        <result column="user_id" property="userId"/>
+    </resultMap>
+
+    <resultMap id="orderUserMap" type="com.star.mybatis.domain.Order" autoMapping="false" extends="orderMap">
+        <result property="user.id" column="uid"/>
+        <result property="user.name" column="name"/>
+        <result property="user.age" column="age"/>
+        <result property="user.address" column="address"/>
+    </resultMap>
+
+    <!-- order和user表关联映射第二种方式 使用association-->
+    <resultMap id="orderUserMapAssociation" type="com.star.mybatis.domain.Order" extends="orderMap" autoMapping="false">
+        <association property="user" javaType="com.star.mybatis.domain.User">
+            <id column="uid" property="id"/>
+            <result column="name" property="name"/>
+            <result column="age" property="age"/>
+            <result column="address" property="address"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="orderMap" resultType="com.star.mybatis.domain.Order">
+        select *
+        from orders
+    </select>
+
+    <!--<select id="findById" resultMap="orderUserMap" resultType="com.star.mybatis.domain.Order">
+        select o.id,
+               o.`createtime`,
+               o.`price`,
+               o.`remark`,
+               u.`id` uid,
+               u.`name`,
+               u.`age`,
+               u.`address`
+        from orders o,
+             user u
+        where o.`user_id` = u.`id`
+          and o.id = #{id}
+    </select>-->
+
+    <select id="findById" resultMap="orderUserMapAssociation" resultType="com.star.mybatis.domain.Order">
+        select o.`id`,
+               o.`createtime`,
+               o.`price`,
+               o.`remark`,
+               u.`id` uid,
+               u.`name`,
+               u.`age`,
+               u.`address`
+        from orders o,
+             user u
+        where o.`user_id` = u.`id`
+          and o.id = #{id}
+    </select>
+
+
+</mapper>

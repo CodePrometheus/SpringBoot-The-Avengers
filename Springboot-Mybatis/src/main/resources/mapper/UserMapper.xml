@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.star.mybatis.mapper.UserMapper">
+
+    <resultMap id="userMap" type="com.star.mybatis.domain.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="address" column="address"/>
+        <result property="age" column="age"/>
+    </resultMap>
+
+    <resultMap id="userRoleMap" type="com.star.mybatis.domain.User" extends="userMap">
+        <!-- 一对多，集合 -->
+        <collection property="roles" ofType="com.star.mybatis.domain.Role">
+            <id property="id" column="rid"/>
+            <result property="name" column="name"/>
+            <result property="desc" column="desc"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="userRoleBySelectMap" type="com.star.mybatis.domain.User" extends="userMap">
+        <!-- 一对多，集合 -->
+        <collection property="roles"
+                    ofType="com.star.mybatis.domain.Role"
+                    select="com.star.mybatis.mapper.RoleMapper.findByUserId"
+                    column="id">
+            <id property="id" column="rid"/>
+            <result property="name" column="name"/>
+            <result property="desc" column="desc"/>
+        </collection>
+    </resultMap>
+
+    <!-- 根据userName查询用户信息和对应的角色信息   -->
+    <resultMap id="userRoleMapSelect" type="com.star.mybatis.domain.User" extends="userMap">
+        <!-- 集合 查询角色信息 定义角色信息查询方法
+        column设置当前结果集中哪列的数据作为select属性指定的查询方法需要的参数
+        select指定用哪个接口来查询当前属性的数据
+        fetchType="lazy"按需加载，需要关联到数据的时候才会去查询关联数据-->
+        <collection property="roles" ofType="com.star.mybatis.domain.Role"
+                    select="com.star.mybatis.mapper.RoleMapper.findByUserId"
+                    column="id"
+                    fetchType="lazy">
+        </collection>
+    </resultMap>
+
+
+    <select id="findAll" resultType="com.star.mybatis.domain.User">
+        select id, name, age, address
+        from user
+    </select>
+
+    <select id="findById" resultMap="userRoleMap" resultType="com.star.mybatis.domain.User">
+        SELECT u.`id`, u.`name`, u.`age`, u.`address`, r.id rid, r.name rname, r.desc
+        FROM `role` r,
+             `user_role` ur,
+             `user` u
+        WHERE u.id = ur.user_id
+          and ur.role_id = r.id
+          and u.id = #{id}
+    </select>
+
+    <select id="findByName" resultMap="userRoleMapSelect" resultType="com.star.mybatis.domain.User">
+        select id, name, age, address
+        from user
+        where name = #{name}
+    </select>
+
+    <select id="findUsersAndRoles" resultMap="userRoleBySelectMap" resultType="com.star.mybatis.domain.User">
+        SELECT u.`id`, u.`name`, u.`age`, u.`address`, r.id rid, r.name rname, r.desc
+        FROM `role` r,
+             `user_role` ur,
+             `user` u
+        WHERE u.id = ur.user_id
+          and ur.role_id = r.id
+    </select>
+
+</mapper>

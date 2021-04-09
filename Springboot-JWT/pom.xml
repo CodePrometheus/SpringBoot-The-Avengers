@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.star</groupId>
-    <artifactId>jwt</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>Springboot-JWT</artifactId>
+    <version>1.0</version>
     <name>jwt</name>
     <description>Demo JWT for Spring Boot</description>
 
