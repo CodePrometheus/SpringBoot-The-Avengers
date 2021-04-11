@@ -50,3 +50,5 @@ Springboot与时下最新流行技术的整合学习记录
     * 多表查询 (一对一，一对多，分步查询)
     * 分页查询
 
+* Springboot + zookeeper
+    * 2n+1台server，只要有n+1台就可以使用，若server少于一半集群整体失效
