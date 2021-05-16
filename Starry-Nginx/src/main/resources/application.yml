@@ -1,0 +1,6 @@
+server:
+  port: 8989
+
+load:
+    balance:
+        algorithm: ConsistentHash

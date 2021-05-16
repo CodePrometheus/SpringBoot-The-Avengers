@@ -115,3 +115,11 @@ Springboot与时下最新流行技术的整合学习记录
 - 后端: Spring Boot + ElasticSearch + Jsoup
 
 <img src="./images/image-20210515143659573.png" alt="image-20210515143659573" style="zoom:50%;" />
+
+
+#### Starry-Nginx
+
+- 实现简易版Nginx
+
+- 一致性Hash
+- 轮询
