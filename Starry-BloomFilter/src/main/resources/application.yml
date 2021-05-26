@@ -5,3 +5,8 @@ spring:
   redis:
     database: 1
     host: 192.168.43.131
+
+bloom:
+  fpp: 0.01F
+  filter-name: bloom:filter
+  expected-insertions: 100
