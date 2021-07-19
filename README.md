@@ -12,13 +12,14 @@ Springboot与时下最新流行技术的整合学习记录
 
 ![image](https://pic2.zhimg.com/80/v2-d04ec9628faf75b94ffa7c349d0847dc_1440w.jpg?source=1940ef5c)
 
-没错，接受SpringBoot熊熊燃烧的大火吧
+
+🔥 I love you three thousand
 
 ---
 
 ## 简介
 
-该仓库为SpringBoot2.4.3与其他相关技术的整合
+该仓库为SpringBoot2.x与其他相关技术的整合
 
 
 ## 内容
@@ -148,3 +149,22 @@ Springboot与时下最新流行技术的整合学习记录
   如果是单体应用，数据量内存也可以接收，那么可以考虑Google布隆过滤器，因为它的查询速度会比redis要快。毕竟它不需要网络IO开销。
 
   如果是分布式集群架构，或者数据量非常大，那么还是考虑用redis布隆过滤器吧，毕竟它不需要往每一节点都存储数据，而且不占用JVM虚拟机内存。
+
+
+#### Starry-ELK
+
+- ELk搭建日志收集
+
+
+#### Starry-MVC
+
+- mvc源码学习
+
+
+### Starry-Sharding
+
+- 分库分表Demo
+
+
+### Stream流操作
+
