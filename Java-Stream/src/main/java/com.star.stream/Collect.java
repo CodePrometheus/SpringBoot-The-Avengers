@@ -30,4 +30,10 @@ public class Collect {
         System.out.println(list.stream().collect(Collectors.joining("|")));
     }
 
+    @Test
+    public void filter() {
+        List<String> list = stream.filter(v -> v.contains("o")).collect(Collectors.toList());
+        System.out.println("list = " + list);
+    }
+
 }
